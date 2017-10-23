@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<center>
+
+<h1>340b Formulary</h1> <%= link_to 'New Drug', new_drug_path %>
+
+</center>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Condition</th>
+      <th>Subcategory</th>
+      <th>Drug</th>
+
+      
+      <th colspan="3"></th>
+
+    </tr>
+  </thead>
+
+  
+
+  <tbody>
+    <% @drugs.each do |drug| %>
+      <tr>
+        <td><%= drug.condition %></td>
+        <td><%= drug.subcategory %></td>
+        <td><%= drug.drug %></td>
+        
+        <td><%= link_to 'Show', drug %></td>
+        <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
+        <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<br>
+
+
