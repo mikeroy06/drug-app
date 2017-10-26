@@ -5,16 +5,22 @@ class DrugsController < ApplicationController
   # GET /drugs.json
   def index
    if params[:search]
-      @drugs = Drug.search(params[:search]).order("created_at DESC")
+      @drugs = Drug.search(params[:search]).order("condition ASC, subcategory ASC, drug ASC")
+
     else
+      # @drugs = Drug.order("condition ASC")
       @drugs = Drug.order("created_at DESC")
+      # @drugs = Drug.order("condition ASC, subcategory ASC, drug ASC")
     end
 end
 
   # GET /drugs/1
   # GET /drugs/1.json
   def show
+
   end
+
+  
 
   # GET /drugs/new
   def new
@@ -25,7 +31,7 @@ end
   def edit
   end
 
-  
+
   # POST /drugs
   # POST /drugs.json
   def create
