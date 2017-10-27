@@ -9,8 +9,8 @@ class DrugsController < ApplicationController
 
     else
       # @drugs = Drug.order("condition ASC")
-      @drugs = Drug.order("created_at DESC")
-      # @drugs = Drug.order("condition ASC, subcategory ASC, drug ASC")
+      # @drugs = Drug.order("created_at DESC")
+      @drugs = Drug.order("condition ASC, subcategory ASC, drug ASC")
     end
 end
 
