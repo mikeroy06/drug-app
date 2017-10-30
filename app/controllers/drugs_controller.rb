@@ -1,5 +1,6 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /drugs
   # GET /drugs.json
@@ -24,7 +25,7 @@ end
 
   # GET /drugs/new
   def new
-    @drug = Drug.new
+    @drug = current_user.drugs.build
   end
 
   # GET /drugs/1/edit
@@ -35,7 +36,7 @@ end
   # POST /drugs
   # POST /drugs.json
   def create
-    @drug = Drug.new(drug_params)
+    @drug = current_user.drugs.build(drug_params)
 
     respond_to do |format|
       if @drug.save
