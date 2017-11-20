@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
          has_many :drugs
+
+         belongs_to :user, optional: true
 end
